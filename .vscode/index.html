@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据可视化</title>
+    <style>
+        @import url(css/index.css);
+    </style>
+    <script src="JS/flexible.js"></script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <header>
+        <h1>高校体测大全</h1>
+        <div class="showTime">数据截至：2020/3/17-0:54</div>
+        <script>
+            var t = null;
+            t = setTimeout(time, 1000); //開始运行
+            function time() {
+                clearTimeout(t); //清除定时器
+                dt = new Date();
+                var y = dt.getFullYear();
+                var mt = dt.getMonth() + 1;
+                var day = dt.getDate();
+                var h = dt.getHours(); //获取时
+                var m = dt.getMinutes(); //获取分
+                var s = dt.getSeconds(); //获取秒
+                document.querySelector(".showTime").innerHTML =
+                    "数据截至：" +
+                    y +
+                    "/" +
+                    mt +
+                    "/" +
+                    day +
+                    "-" +
+                    h +
+                    ":" +
+                    m;
+                t = setTimeout(time, 1000); //设定定时器，循环运行
+            }
+        </script>
+    </header>
+</body>
+
+</html>
