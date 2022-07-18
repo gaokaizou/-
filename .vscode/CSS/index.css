@@ -190,15 +190,15 @@ header .showTime {
 }
 .map {
   position: relative;
-  height: 10.125rem;
+  height: 9.375rem;
 }
 .map .chart {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 5;
-  height: 10.125rem;
-  width: 100%;
+  height: 150px;
+  width: 75%;
 }
 .map .map1,
 .map .map2,
@@ -214,8 +214,8 @@ header .showTime {
   opacity: 0.3;
 }
 .map .map2 {
-  width: 8.0375rem;
-  height: 8.0375rem;
+  width: 7.5rem;
+  height: 7.5625rem;
   background-image: url(../images/lbx.png);
   opacity: 0.6;
   animation: rotate 15s linear infinite;
