@@ -11,11 +11,10 @@ li {
   src: url(../font/DS-DIGIT.TTF);
 }
 body {
-  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   /*  背景图定位 / 背景图尺寸  cover 完全铺满容器  contain 完整显示在容器内 */
-  background: url(../images/bg2.png) no-repeat #000;
+  background: url(../images/bg.jpg) no-repeat #000;
   background-size: cover;
   /* 行高是字体1.15倍 */
   line-height: 1.15;
@@ -53,6 +52,12 @@ header .showTime {
   flex: 5;
   margin: 0 0.125rem 0.1875rem;
   overflow: hidden;
+}
+.link {
+  position: static;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
 }
 .panel {
   position: relative;
@@ -190,15 +195,15 @@ header .showTime {
 }
 .map {
   position: relative;
-  height: 9.375rem;
+  height: 10.125rem;
 }
 .map .chart {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 5;
-  height: 150px;
-  width: 75%;
+  height: 10.125rem;
+  width: 100%;
 }
 .map .map1,
 .map .map2,
@@ -214,8 +219,8 @@ header .showTime {
   opacity: 0.3;
 }
 .map .map2 {
-  width: 7.5rem;
-  height: 7.5625rem;
+  width: 8.0375rem;
+  height: 8.0375rem;
   background-image: url(../images/lbx.png);
   opacity: 0.6;
   animation: rotate 15s linear infinite;
