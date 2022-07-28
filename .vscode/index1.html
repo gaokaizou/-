@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生运动数据大屏</title>
+    <link rel="stylesheet" href="CSS/index.css" />
+    <link rel="stylesheet" href="CSS/index.less" />
+</head>
+<body>
+    
+    <div class="box"></div>
+    <header>
+        <h1>学生运动数据大屏</h1>
+        <div class="showTime">数据截至：2022/3/17</div>
+        <script>
+            var t = null;
+            t = setTimeout(time, 1000); //開始运行
+            function time() {
+                clearTimeout(t); //清除定时器
+                dt = new Date();
+                var y = dt.getFullYear();
+                var mt = dt.getMonth() + 1;
+                var day = dt.getDate();
+
+                document.querySelector(".showTime").innerHTML =
+                    "数据截至：" +
+                    y +
+                    "/" +
+                    mt +
+                    "/" +
+                    day;
+                t = setTimeout(time, 1000); //设定定时器，循环运行
+            }
+        </script>
+    </header>
+    <!--页面主体-->
+    <div class="link">
+        <img src="images/click.png" width="30px" height="30px">
+        <a href="index.html" style="text-decoration: none;color:rgb(67, 104, 206);">返回</a>
+    </div>
+    <section class="mainbox">
+
+        <div class="column">
+            <div class="panel bar">
+                <h2>123</h2>
+                <div class="chart"></div>
+                <!--放图表-->
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel line">
+                <h2>日活跃</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel pie">
+                <h2>日活跃</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+        <!--中间部分  -->
+        <div class="column">
+            <div class="no">
+                <div class="no-bd">
+                    <ul>
+                        <li>前端需求人数</li>
+                        <li>市场供应人数</li>
+                    </ul>
+                </div>
+                <div class="no-hd">
+                    <ul>
+                        <li>125811</li>
+                        <li>104563</li>
+                    </ul>
+                </div>
+                <div class="no-bd">
+                    <ul>
+                        <li>前端需求人数</li>
+                        <li>市场供应人数</li>
+                    </ul>
+                </div>
+                <div class="no-hd">
+                    <ul>
+                        <li>125811</li>
+                        <li>104563</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map">
+                <div class="chart"></div>
+                <div class="map1"></div>
+                <div class="map2"></div>
+                <div class="map3"></div>
+            </div>
+        </div>
+        <!-- 右侧部分制作 -->
+        <div class="column">
+            <div class="panel bar1">
+              <h2>柱状图-技能掌握</h2>
+              <div class="chart"></div>
+              <div class="panel-footer"></div>
+            </div>
+            <div class="panel line1">
+              <h2>折线图-播放量</h2>
+              <div class="chart"></div>
+              <div class="panel-footer"></div>
+            </div>
+            <div class="panel pie1">
+              <h2>饼形图-地区分布</h2>
+              <div class="chart"></div>
+              <div class="panel-footer"></div>
+            </div>
+          </div>
+
+
+
+
+    </section>
+    <!--屏幕适配-->
+    <script src="JS/flexible.js"></script>
+    <script src="JS/jquery.js"></script>
+    <script src="JS/echarts.min.js"></script>
+    <script src="JS/index.js"></script>
+    <script src="JS/china.js"></script>
+    <script src="JS/myMap.js"></script>
+</body>
+</html>
