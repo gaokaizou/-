@@ -1,14 +1,18 @@
+/* (function)(); 表示即时函数，执行完就没了
+    变量也是局部变量，这样可以表面多个函数的同名变量混乱
+ */
 // 柱状图1模块
-(function() {
-  // 实例化对象
+(function () {
+  // 实例化变量 echarts.init(dom容器) dom是有大小的
   var myChart = echarts.init(document.querySelector(".bar .chart"));
-  // 指定配置和数据
+  // 指定配置变量
   var option = {
     color: ["#2f89cf"],
+    //图标提示信息
     tooltip: {
-      trigger: "axis",
+      trigger: "axis", //鼠标放到axis上触发提示信息
       axisPointer: {
-        // 坐标轴指示器，坐标轴触发有效
+        // 坐标轴指示器 鼠标放到轴上有阴影
         type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
       }
     },
@@ -22,6 +26,7 @@
     xAxis: [
       {
         type: "category",
+        //x的date是文字信息
         data: [
           "旅游行业",
           "教育培训",
@@ -32,14 +37,16 @@
           "金融行业"
         ],
         axisTick: {
-          alignWithLabel: true
+          alignWithLabel: true  //x轴标签
         },
+        //刻度标签样式
         axisLabel: {
           textStyle: {
             color: "rgba(255,255,255,.6)",
             fontSize: "12"
           }
         },
+        //x轴样式
         axisLine: {
           show: false
         }
@@ -54,6 +61,7 @@
             fontSize: "12"
           }
         },
+        //y轴线条颜色
         axisLine: {
           lineStyle: {
             color: "rgba(255,255,255,.1)"
@@ -61,6 +69,7 @@
             // type: "solid"
           }
         },
+        //y轴分割线样式
         splitLine: {
           lineStyle: {
             color: "rgba(255,255,255,.1)"
@@ -68,6 +77,7 @@
         }
       }
     ],
+    // 真正的数据，后续用于动态获取
     series: [
       {
         name: "直接访问",
@@ -83,7 +93,8 @@
 
   // 把配置给实例对象
   myChart.setOption(option);
-  window.addEventListener("resize", function() {
+  //图表大小自适应
+  window.addEventListener("resize", function () {
     myChart.resize();
   });
 
@@ -93,14 +104,14 @@
     { year: "2020", data: [300, 400, 350, 800, 1800, 1400, 700] }
   ];
 
-  $(".bar h2 ").on("click", "a", function() {
+  $(".bar h2 ").on("click", "a", function () {
     option.series[0].data = dataAll[$(this).index()].data;
     myChart.setOption(option);
   });
 })();
 
 // 折线图定制
-(function() {
+(function () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector(".line .chart"));
 
@@ -114,11 +125,14 @@
 
   // 2. 指定配置和数据
   var option = {
+    //设置线条颜色  数组形式  
     color: ["#00f2f1", "#ed3f35"],
+    //提示信息
     tooltip: {
-      // 通过坐标轴来触发
+      // 通过坐标轴来触发提示
       trigger: "axis"
     },
+    //图例组件
     legend: {
       // 距离容器10%
       right: "10%",
@@ -129,18 +143,28 @@
       // 如果series 里面设置了name，此时图例组件的data可以省略
       // data: ["邮件营销", "联盟广告"]
     },
+
+    //网格配置，真正有图表的那个范围，而dom不仅包括网格也包括legend等内容
     grid: {
       top: "20%",
-      left: "3%",
+      left: "3%",   //图表距离容器左边的距离
       right: "4%",
       bottom: "3%",
       show: true,
       borderColor: "#012f4a",
-      containLabel: true
+      containLabel: true      //显示刻度
     },
+    //工具箱
+    /*     toolbox:{
+          feature:{
+            saveAsImage:{}     //另存为图片
+          }
+        },
+     */
 
+    //x轴
     xAxis: {
-      type: "category",
+      type: "category", //value 数值轴，适用于数据 category 类目轴，适用于种类
       boundaryGap: false,
       data: [
         "1月",
@@ -186,11 +210,13 @@
         }
       }
     },
+    //决定显示哪种类型的图标，内容用数组形式
     series: [
       {
-        name: "新增粉丝",
+        name: "新增粉丝",   //分开命名了name，前面的legend就可以删去
         type: "line",
-        stack: "总量",
+        stack: "总量", /*  数据堆叠，后一个值会在前一个值上相加后显示
+                        不影响本身数据，只是为了显示后线不会交叉 */
         // 是否让线条圆滑显示
         smooth: true,
         data: data.year[0]
@@ -209,14 +235,14 @@
 
   // 重新把配置好的新数据给实例对象
   myChart.setOption(option);
-  window.addEventListener("resize", function() {
+  window.addEventListener("resize", function () {
     myChart.resize();
   });
 })();
 
 // 饼形图定制
 // 折线图定制
-(function() {
+(function () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector(".pie .chart"));
 
@@ -224,7 +250,7 @@
     tooltip: {
       trigger: "item",
       formatter: "{a} <br/>{b}: {c} ({d}%)",
-      position: function(p) {
+      position: function (p) {
         //其中p为当前鼠标的位置
         return [p[0] + 10, p[1] - 10];
       }
@@ -271,12 +297,12 @@
 
   // 使用刚指定的配置项和数据显示图表。
   myChart.setOption(option);
-  window.addEventListener("resize", function() {
+  window.addEventListener("resize", function () {
     myChart.resize();
   });
 })();
 // 学习进度柱状图模块
-(function() {
+(function () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector(".bar1 .chart"));
 
@@ -347,7 +373,7 @@
         itemStyle: {
           normal: {
             barBorderRadius: 20,
-            color: function(params) {
+            color: function (params) {
               var num = myColor.length;
               return myColor[params.dataIndex % num];
             }
@@ -382,12 +408,12 @@
 
   // 使用刚指定的配置项和数据显示图表。
   myChart.setOption(option);
-  window.addEventListener("resize", function() {
+  window.addEventListener("resize", function () {
     myChart.resize();
   });
 })();
 // 折线图 优秀作品
-(function() {
+(function () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector(".line1 .chart"));
 
@@ -651,13 +677,13 @@
 
   // 使用刚指定的配置项和数据显示图表。
   myChart.setOption(option);
-  window.addEventListener("resize", function() {
+  window.addEventListener("resize", function () {
     myChart.resize();
   });
 })();
 
 // 点位分布统计模块
-(function() {
+(function () {
   // 1. 实例化对象
   var myChart = echarts.init(document.querySelector(".pie1  .chart"));
   // 2. 指定配置项和数据
@@ -722,7 +748,7 @@
   // 3. 配置项和数据给我们的实例化对象
   myChart.setOption(option);
   // 4. 当我们浏览器缩放的时候，图表也等比例缩放
-  window.addEventListener("resize", function() {
+  window.addEventListener("resize", function () {
     // 让我们的图表调用 resize这个方法
     myChart.resize();
   });

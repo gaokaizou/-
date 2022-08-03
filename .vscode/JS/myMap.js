@@ -279,11 +279,14 @@
         }
       },
       roam: false,
-      //   放大我们的地图
-      zoom: 1,
+      //   放大地图
+      zoom: 1.2,
       itemStyle: {
+        
         normal: {
-          areaColor: "rgba(43, 196, 243, 0.42)",
+          //地图省份背景颜色
+          //0.4代表透明度
+          areaColor: "rgba(43, 196, 243,0.4)",
           borderColor: "rgba(43, 196, 243, 1)",
           borderWidth: 1
         },

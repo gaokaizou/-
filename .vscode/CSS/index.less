@@ -68,7 +68,7 @@ header {
   background: rgba(255, 255, 255, 0.04) url(../images/line\(1\).png);
   padding: 0 0.1875rem 0.5rem;
   margin-bottom: 0.1875rem;
-  &::before {
+  &::before {  //上边框
     position: absolute;
     top: 0;
     left: 0;
@@ -78,7 +78,7 @@ header {
     border-top: 2px solid #02a6b5;
     border-left: 2px solid #02a6b5;
   }
-  &::after {
+  &::after {    //上边框
     position: absolute;
     top: 0;
     right: 0;
@@ -88,7 +88,7 @@ header {
     border-top: 2px solid #02a6b5;
     border-right: 2px solid #02a6b5;
   }
-  .panel-footer {
+  .panel-footer {    //下边框
     position: absolute;
     left: 0;
     bottom: 0;
@@ -103,7 +103,7 @@ header {
       border-bottom: 2px solid #02a6b5;
       border-left: 2px solid #02a6b5;
     }
-    &::after {
+    &::after {    //下边框
       position: absolute;
       bottom: 0;
       right: 0;
@@ -226,7 +226,7 @@ header {
     height: 8.0375rem;
     background-image: url(../images/lbx.png);
     opacity: 0.6;
-    animation: rotate 15s linear infinite;
+    animation: rotate 12s linear infinite;
     z-index: 2;
   }
   .map3 {
@@ -235,7 +235,7 @@ header {
     background-image: url(../images/jt.png);
     animation: rotate1 10s linear infinite;
   }
-
+//旋转
   @keyframes rotate {
     from {
       transform: translate(-50%, -50%) rotate(0deg);

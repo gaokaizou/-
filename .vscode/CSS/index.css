@@ -223,7 +223,7 @@ header .showTime {
   height: 8.0375rem;
   background-image: url(../images/lbx.png);
   opacity: 0.6;
-  animation: rotate 15s linear infinite;
+  animation: rotate 12s linear infinite;
   z-index: 2;
 }
 .map .map3 {
